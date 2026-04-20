@@ -1,0 +1,42 @@
+[
+  {
+    "id": "C001",
+    "first_name": "Emily",
+    "last_name": "Johnson",
+    "email": "emily.johnson@example.com",
+    "phone": "+1-555-0101",
+    "address": "14 Maple Street, Springfield, IL 62701",
+    "password": "hashed_p@ssw0rd_1",
+    "bank_account": "GB29NWBK60161331926819"
+  },
+  {
+    "id": "C002",
+    "first_name": "Marcus",
+    "last_name": "Chen",
+    "email": "marcus.chen@example.com",
+    "phone": "+1-555-0102",
+    "address": "87 Ocean Drive, Miami, FL 33139",
+    "password": "hashed_securePass99",
+    "bank_account": "DE89370400440532013000"
+  },
+  {
+    "id": "C003",
+    "first_name": "Sara",
+    "last_name": "Johnson",
+    "email": "sara.johnson@example.com",
+    "phone": "+1-555-0103",
+    "address": "3 Pine Avenue, Portland, OR 97201",
+    "password": "hashed_sara2024!",
+    "bank_account": "FR7614508590000006345820016"
+  },
+  {
+    "id": "C004",
+    "first_name": "Lena",
+    "last_name": "Müller",
+    "email": "lena.mueller@example.com",
+    "phone": "+49-30-555-0104",
+    "address": "Friedrichstraße 42, 10117 Berlin, Germany",
+    "password": "hashed_lena#Secure",
+    "bank_account": "DE12500105170648489890"
+  }
+]

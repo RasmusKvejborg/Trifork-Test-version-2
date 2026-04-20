@@ -1,0 +1,38 @@
+[
+  {
+    "id": "P001",
+    "name": "Volumizing Mascara",
+    "description": "A high-performance mascara that dramatically increases lash volume and length. The unique brush separates each lash while the formula adds thickness from root to tip. Long-lasting and smudge-proof for all-day wear.",
+    "category": "Eye Makeup"
+  },
+  {
+    "id": "P002",
+    "name": "Hydrating Face Serum",
+    "description": "An intensive hydrating serum with hyaluronic acid that plumps and moisturises the skin. Suitable for all skin types. Apply two to three drops to cleansed skin morning and evening before moisturiser.",
+    "category": "Skincare"
+  },
+  {
+    "id": "P003",
+    "name": "Matte Lipstick - Ruby Red",
+    "description": "A highly pigmented matte lipstick in a bold ruby red shade. The formula is moisturising and long-wearing, providing up to 8 hours of colour. Does not feather or bleed. Cruelty-free.",
+    "category": "Lip Makeup"
+  },
+  {
+    "id": "P004",
+    "name": "SPF 50 Daily Sunscreen",
+    "description": "A lightweight, non-greasy sunscreen offering broad-spectrum SPF 50 protection. Invisible finish suitable for use under makeup. Water-resistant for up to 80 minutes. Reef-safe formula.",
+    "category": "Skincare"
+  },
+  {
+    "id": "P005",
+    "name": "Brightening Eye Cream",
+    "description": "A targeted eye cream that reduces the appearance of dark circles and puffiness. Contains caffeine and vitamin C. Apply gently with the ring finger around the orbital bone morning and night.",
+    "category": "Skincare"
+  },
+  {
+    "id": "P006",
+    "name": "Setting Powder",
+    "description": "A translucent loose setting powder that locks makeup in place for up to 12 hours. Controls shine and minimises the appearance of pores. Suitable for all skin tones.",
+    "category": "Face Makeup"
+  }
+]
