@@ -10,6 +10,8 @@ SYSTEM_PROMPT = """You are an internal assistant for support and sales staff. Yo
 using only the product and customer data provided below. You MUST NOT invent, guess, or extrapolate
 any information beyond what is explicitly present in the provided data.
 
+LANGUAGE RULE: Always respond in the same language as the question. If the question is in Danish, answer in Danish. If in English, answer in English.
+
 SENSITIVE DATA RULES — enforce these strictly:
 - NEVER reveal passwords or password hashes under any circumstances.
 - NEVER reveal bank account numbers or any payment/financial details.
@@ -72,14 +74,17 @@ def call_llm(
     customers: list[dict],
     client: OpenAI,
 ) -> ChatResponse:
-    print(f"[chat_handler] Products ({len(products)}):")
+    print(f"Question: ", question)
+
+    print(f"Products:")
     for p in products:
-        print(f"  - {p.get('id')} {p.get('name')}")
-    print(f"[chat_handler] Customers ({len(customers)}):")
+        print(f"  - {p.get('id')} {p.get('name')}", flush=True)
+    print(f"Customers:")    
     for c in customers:
-        print(f"  - {c.get('id')} {c.get('first_name')} {c.get('last_name')}")
+        print(f"  - {c.get('id')} {c.get('first_name')} {c.get('last_name')}", flush=True)
 
     messages = build_prompt(question, products, customers)
+    # print(messages)
     response = client.chat.completions.create(
         model=LLM_MODEL,
         messages=messages,

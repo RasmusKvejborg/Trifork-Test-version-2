@@ -1,4 +1,5 @@
 import json
+import re
 
 
 def load_customers(path: str) -> list[dict]:
@@ -7,12 +8,11 @@ def load_customers(path: str) -> list[dict]:
 
 
 def lookup_customers(query: str, customers: list[dict]) -> list[dict]:
-    query_lower = query.lower()
+    tokens = set(re.findall(r"[a-zæøå]+", query.lower()))
     matches = []
     for customer in customers:
         first = customer.get("first_name", "").lower()
         last = customer.get("last_name", "").lower()
-        full = f"{first} {last}"
-        if query_lower in first or query_lower in last or query_lower in full:
+        if first in tokens or last in tokens:
             matches.append(customer)
     return matches

@@ -21,9 +21,9 @@
   },
   {
     "id": "C003",
-    "first_name": "Sara",
+    "first_name": "Jack",
     "last_name": "Johnson",
-    "email": "sara.johnson@example.com",
+    "email": "Jack.johnson@example.com",
     "phone": "+1-555-0103",
     "address": "3 Pine Avenue, Portland, OR 97201",
     "password": "hashed_sara2024!",

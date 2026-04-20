@@ -45,7 +45,6 @@ def chat(request: ChatRequest) -> ChatResponse:
     embedding_index: np.ndarray = app.state.embedding_index
     indexed_products: list[dict] = app.state.indexed_products
     customers: list[dict] = app.state.customers
-
     relevant_products = search_products(
         request.question, embedding_index, indexed_products, client
     )
