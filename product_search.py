@@ -8,7 +8,7 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 
 def load_products(path: str) -> list[dict]:
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        return json.load(f)["products"]
 
 
 def embed_text(text: str, client: OpenAI) -> list[float]:
@@ -19,7 +19,9 @@ def embed_text(text: str, client: OpenAI) -> list[float]:
 def build_index(
     products: list[dict], client: OpenAI
 ) -> tuple[np.ndarray, list[dict]]:
-    embeddings = [embed_text(p["description"], client) for p in products]
+    texts = [p["description"] for p in products]
+    response = client.embeddings.create(model=EMBEDDING_MODEL, input=texts)
+    embeddings = [e.embedding for e in response.data]
     return np.array(embeddings, dtype=np.float32), products
 
 

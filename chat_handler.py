@@ -15,9 +15,7 @@ LANGUAGE RULE: Always respond in the same language as the question. If the quest
 SENSITIVE DATA RULES — enforce these strictly:
 - NEVER reveal passwords or password hashes under any circumstances.
 - NEVER reveal bank account numbers or any payment/financial details.
-- For address fields: you MAY share general location information (city, country, region).
-  You MUST NOT share precise address details (street name, house number, postal/ZIP code,
-  or a full address string).
+- For address fields: you MAY share general information, (e.g. the city a person lives in) but not precise details (e.g. street name or a full address string).
 - If asked for sensitive data, refuse politely and explain you cannot share that information.
 
 NO-DATA RULE:
@@ -39,24 +37,12 @@ def build_prompt(
     context_parts = []
 
     if products:
-        product_text = "\n\n".join(
-            f"Product ID: {p.get('id', 'N/A')}\n"
-            f"Name: {p.get('name', 'N/A')}\n"
-            f"Category: {p.get('category', 'N/A')}\n"
-            f"Description: {p.get('description', 'N/A')}"
-            for p in products
-        )
-        context_parts.append(f"## Relevant Products\n\n{product_text}")
+        context_parts.append(f"## Relevant Products\n\n{json.dumps(products, ensure_ascii=False, indent=2)}")
     else:
         context_parts.append("## Relevant Products\n\nNo products found.")
 
     if customers:
-        customer_text = "\n\n".join(
-            f"--- Customer Record {i + 1} ---\n"
-            + "\n".join(f"{k}: {v}" for k, v in c.items())
-            for i, c in enumerate(customers)
-        )
-        context_parts.append(f"## Matching Customers\n\n{customer_text}")
+        context_parts.append(f"## Matching Customers\n\n{json.dumps(customers, ensure_ascii=False, indent=2)}")
     else:
         context_parts.append("## Matching Customers\n\nNo customers found.")
 
@@ -78,10 +64,10 @@ def call_llm(
 
     print(f"Products:")
     for p in products:
-        print(f"  - {p.get('id')} {p.get('name')}", flush=True)
+        print(p)
     print(f"Customers:")    
     for c in customers:
-        print(f"  - {c.get('id')} {c.get('first_name')} {c.get('last_name')}", flush=True)
+        print(c)
 
     messages = build_prompt(question, products, customers)
     # print(messages)
